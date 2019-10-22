@@ -16,7 +16,7 @@ body {
     color: $light-font;
     margin-left: 0.5em;
     font-size: 4em;
-    font-family: $headline-txt;
+    font-family: $txt;
     font-weight: $light;
     word-wrap: break-word;
     border-bottom: 1px whitesmoke solid;
@@ -72,9 +72,9 @@ nav {
   z-index: 2;
   text-align: right;
   padding: 1em;
-  font-family: $headline-txt;
+  font-family: $txt;
   font-weight: $light;
-  background: #010112b4;
+  background: $nav-dark;
 
   a {
     color: $light-font;
@@ -93,21 +93,21 @@ nav {
     &:hover::after {
       width: 50px;
       transform: scaleX(1);
-      border-bottom: 1px whitesmoke solid;
+      border-bottom: 1px $light-font solid;
     }
   }
 }
 
 section {
   h1 {
-    font-family: $headline-txt;
+    font-family: $txt;
     font-weight: $light;
     font-size: 2.5em;
     text-align: center;
   }
 
   p {
-    font-family: $headline-txt;
+    font-family: $txt;
     font-weight: $regular;
   }
 }
