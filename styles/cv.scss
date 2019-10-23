@@ -1,3 +1,8 @@
+// ScrollTo Javascript
+//SCroll into view
+//Indicator evt. pil-ish
+//Halv-logo / helt logo på hvert firma
+
 #about {
   display: grid;
   grid-template-columns: 1fr 3fr;
@@ -73,7 +78,17 @@
 }
 
 #resume {
-  margin: 10em;
+  margin: 8em;
+  position: relative;
+
+  .h4-edu {
+    top: 4.3em;
+  }
+
+  .h4-job {
+    font-size: 8em;
+    top: -0.4em;
+  }
 
   h1 {
     margin: 4em 0em 2em 0em;
@@ -81,6 +96,65 @@
   .cv {
     overflow: auto;
     white-space: nowrap;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 2em;
+    padding: 2em;
+  }
+
+  .job,
+  .education {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 1em;
+    width: 30vw;
+    border-radius: 1em;
+    box-shadow: 1px 7px 20px grey;
+    margin-right: 2em;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      transform: scale(1.03, 1.03);
+    }
+
+    h1 {
+      font-size: 1.6em;
+      margin: 0;
+    }
+
+    h2 {
+      font-family: $txt;
+      font-weight: $bold;
+      font-size: 1.2em;
+      text-align: center;
+    }
+
+    h3 {
+      font-family: $txt;
+      font-weight: $semi-bold;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    ul {
+      white-space: normal;
+    }
+
+    li {
+      font-family: $txt;
+      line-height: 2;
+      max-width: 30vw;
+      font-size: 0.8em;
+    }
+
+    .cv > .job:last-child {
+      margin: 20em;
+    }
   }
 
   img {

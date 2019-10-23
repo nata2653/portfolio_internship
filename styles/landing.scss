@@ -74,24 +74,35 @@ nav {
   padding: 1em;
   font-family: $txt;
   font-weight: $light;
-  background: $nav-dark;
+
+  .nav-colored {
+    background: $nav-dark;
+  }
+
+  .nav-transparent {
+    background: transparent;
+  }
 
   a {
     color: $light-font;
     text-decoration: none;
-    padding: 2em;
+    margin: 2em;
     transform: scaleX(0);
     transition: transform 250ms ease-in-out;
+    position: relative;
 
     &::after {
+      position: absolute;
       content: "";
       transition: width 0.3s;
       display: inline-block;
+      bottom: 0;
+      left: 0;
       width: 0;
     }
 
     &:hover::after {
-      width: 50px;
+      width: 100%;
       transform: scaleX(1);
       border-bottom: 1px $light-font solid;
     }
@@ -99,11 +110,23 @@ nav {
 }
 
 section {
+  position: relative;
   h1 {
     font-family: $txt;
     font-weight: $light;
     font-size: 2.5em;
     text-align: center;
+  }
+
+  h4 {
+    font-size: 10em;
+    opacity: 0.1;
+    font-family: $txt;
+    position: absolute;
+    margin: 0;
+    top: -0.2em;
+    left: 0.3em;
+    color: $dark-font;
   }
 
   p {
