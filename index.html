@@ -12,6 +12,19 @@
   </head>
   <body>
     <header>
+      <div id="burger-menu">
+        <span></span>
+      </div>
+
+      <div id="menu">
+        <ul>
+          <li><a href="#info">About me</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="cv.html">CV</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
       <nav id="nav-bar">
         <a href="#info">About me</a>
         <a href="#portfolio">Portfolio</a>
@@ -23,7 +36,7 @@
           STRIVING TO BE A <br />
           FRONTEND DESIGNER
         </h1>
-        <div class="scroll-indicator fa fa-angle-double-down"></div>
+        <a href="#info" class="scroll-indicator fa fa-angle-double-down"></a>
       </div>
     </header>
     <main>
@@ -39,7 +52,10 @@
         <h1>PORTFOLIO</h1>
         <h4>PORTFOLIO</h4>
         <div class="portfolio">
-          <a href=""><img src="img/bg-img.jpg" alt=""/></a>
+          <div class="image">
+            <a href=""><img src="img/bg-img.jpg" alt=""/></a>
+            <p>Visit the website</p>
+          </div>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore, hic accusamus modi odit beatae quia repellendus consequuntur alias repellat minima soluta natus. Perspiciatis assumenda
             temporibus voluptate officiis laborum sequi quas? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga nam enim dolores quam quo iusto repellat quod, provident sint molestias sit
@@ -52,10 +68,14 @@
             nihil voluptatum?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis et vero nostrum nam. Inventore quis aperiam hic ipsum sed laudantium natus voluptates in culpa
             consectetur illum, esse, dolorum iste eius.
           </p>
-          <a href=""><img src="img/bg-img.jpg" alt=""/></a>
+          <div class="image">
+            <a href=""><img src="img/bg-img.jpg" alt=""/></a>
+          </div>
         </div>
         <div class="portfolio">
-          <a href=""><img src="img/bg-img.jpg" alt=""/></a>
+          <div class="image">
+            <a href=""><img src="img/bg-img.jpg" alt="" title="Visit website"/></a>
+          </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit velit quae sit quam commodi inventore est natus accusantium facere illo placeat incidunt accusamus nulla eum quasi, quidem
             temporibus laborum Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab mollitia, quaerat doloremque ex soluta minus minima dolorum in nobis consectetur nemo iste porro itaque
@@ -72,6 +92,10 @@
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, est in. Quis at, quaerat possimus, aut ipsam nam magnam libero reprehenderit assumenda, necessitatibus quia illo vitae
           nulla quisquam voluptates vero?
         </p>
+        <div class="some">
+          <a href="https://www.linkedin.com/in/natalie-sirich-689682184/" target="_blank"><img src="img/linkedin.png" alt="LinkedIn logo"/></a>
+        </div>
+
         <div class="contact-info">
           <p class="tlf">+45 61163539</p>
           <p class="mail">nataliesirich@hotmail.com</p>

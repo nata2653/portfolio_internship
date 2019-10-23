@@ -13,9 +13,10 @@
   <body>
     <header>
       <nav>
-        <a href="index.html">Portfolio</a>
-        <a href="cv.html">CV</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html">Home</a>
+<a href="#exp-nav-to">Experience</a>
+<a href="#edu-nav-to">Education</a>
+<a href="#contact">Contact</a>
       </nav>
     </header>
     <main>
@@ -30,12 +31,14 @@
           </p>
         </div>
         <img src="img/portraet.png" alt="portrait of me" />
-        <div class="scroll-indicator fa fa-angle-double-down"></div>
+        <a href="#resume" class="scroll-indicator fa fa-angle-double-down"></a>
       </section>
 
       <section id="resume">
-        <h1>Work experience</h1>
-        <h4 class="h4-job">Work experience</h4>
+          <div id="exp-nav-to">
+        <h1>Experience</h1>
+    </div>
+        <h4 class="h4-job">Experience</h4>
         <div class="cv">
           <div class="job">
             <h1>VILA Stores</h1>
@@ -90,7 +93,10 @@
             </ul>
           </div>
         </div>
+        <div class="education-box">
+            <div id="edu-nav-to">
         <h1>Education</h1>
+    </div>
         <h4 class="h4-edu">Education</h4>
         <div class="cv">
           <div class="education">
@@ -111,6 +117,7 @@
             </div>
           </div>
         </div>
+    </div>
       </section>
     </main>
     <footer>
@@ -121,6 +128,8 @@
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, est in. Quis at, quaerat possimus, aut ipsam nam magnam libero reprehenderit assumenda, necessitatibus quia illo vitae
           nulla quisquam voluptates vero?
         </p>
+        <div class="some"><a href="https://www.linkedin.com/in/natalie-sirich-689682184/" target="_blank"><img src="img/linkedin.png" alt="LinkedIn logo"></a></div>
+
         <div class="contact-info">
           <p class="tlf">+45 61163539</p>
           <p class="mail">nataliesirich@hotmail.com</p>
@@ -128,7 +137,6 @@
         </div>
       </section>
     </footer>
-
     <script src="script.js"></script>
   </body>
 </html>

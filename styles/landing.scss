@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
 }
@@ -31,6 +35,7 @@ body {
     position: absolute;
     left: 50%;
     font-size: 3em;
+    text-decoration: none;
 
     -webkit-animation: bounce 1.4s infinite;
     animation: bounce 1.4s infinite;
@@ -64,6 +69,9 @@ body {
   .fas {
     color: white;
   }
+}
+#menu {
+  display: none;
 }
 
 nav {
@@ -149,20 +157,43 @@ section {
   .portfolio {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    margin: 5em 1em 0em 1em;
-
-    img {
-      max-height: 550px;
-      transition: all 0.5s ease-in-out;
-
-      &:hover {
-        transform: scale(1.03, 1.03);
-      }
-    }
+    margin: 5em 1em 0em;
 
     p {
       padding-right: 3em;
       margin-top: 0;
+    }
+  }
+  .image {
+    position: relative;
+
+    img {
+      max-height: 550px;
+      transition: all 0.5s ease-in-out;
+      opacity: 1;
+      position: relative;
+
+      &:hover {
+        transform: scale(1.03, 1.03);
+        opacity: 0.3;
+      }
+    }
+
+    p {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(29, 106, 154, 0.72);
+      color: black;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.2s, visibility 0.2s;
+
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 }
@@ -170,34 +201,164 @@ section {
 #contact {
   margin: 4em 1.5em;
   border-top: 1px grey solid;
+  background: $nav-dark;
+  color: $light-font;
 
   .contact-txt {
     max-width: 60vw;
     margin: 0 auto;
   }
 
+  h4 {
+    color: rgb(58, 58, 58);
+  }
+
+  img {
+    border-radius: 0.7em;
+  }
+
   .contact-info {
     max-width: 60vw;
     margin: 0 auto;
-    padding-top: 5em;
+    padding-top: 2em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2em;
+    text-align: center;
+
+    p {
+      font-size: 1.2em;
+    }
   }
 
   .tlf:before {
     font-family: "Material Icons";
     content: "\e325";
-    font-size: 2em;
+    font-size: 1.2em;
     padding-right: 0.5em;
   }
   .mail:before {
     font-family: "Material Icons";
     content: "\e0be";
-    font-size: 2em;
+    font-size: 1.2em;
     padding-right: 0.5em;
   }
   .adress:before {
     font-family: "Material Icons";
     content: "\e88a";
-    font-size: 2em;
+    font-size: 1.2em;
     padding-right: 0.5em;
+  }
+}
+
+//MEDIA QUERIES
+
+@media only screen and (max-width: 768px) {
+  #nav-bar {
+    display: none;
+  }
+
+  #burger-menu {
+    cursor: pointer;
+    margin: 3em;
+    overflow: visible;
+    position: fixed;
+    z-index: 2;
+  }
+  #burger-menu span,
+  #burger-menu span:before,
+  #burger-menu span:after {
+    background: $light-font;
+    height: 0.2em;
+    opacity: 1;
+    position: absolute;
+    transition: 0.3s ease-in-out;
+  }
+  #burger-menu span:before,
+  #burger-menu span:after {
+    content: "";
+  }
+  #burger-menu span {
+    right: 0;
+    top: 1em;
+    width: 1em;
+  }
+  #burger-menu span:before {
+    left: 0;
+    top: -0.7em;
+    width: 1.3em;
+  }
+  #burger-menu span:after {
+    left: 0;
+    top: 0.7em;
+    width: 1.3em;
+  }
+
+  #burger-menu.close span {
+    transform: rotate(-45deg);
+    top: 0.8em;
+    width: 1.7em;
+  }
+  #burger-menu.close span:before {
+    top: 0;
+    transform: rotate(90deg);
+    width: 1.7em;
+  }
+  #burger-menu.close span:after {
+    top: 0;
+    left: 0;
+    transform: rotate(90deg);
+    opacity: 0;
+    width: 0;
+  }
+
+  #menu {
+    z-index: 1;
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    li {
+      list-style: none;
+    }
+    a {
+      color: $light-font;
+      display: inline-block;
+      font-size: 2em;
+      margin-bottom: 2em;
+      text-decoration: none;
+      font-family: $txt;
+      justify-content: center;
+
+      transition: transform 250ms ease-in-out;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: "";
+        transition: width 0.3s;
+        bottom: 0;
+        left: 0;
+        width: 0;
+      }
+
+      &:hover::after {
+        width: 100%;
+        transform: scaleX(1);
+        border-bottom: 1px $light-font solid;
+      }
+    }
+  }
+
+  #menu.overlay {
+    visibility: visible;
+    opacity: 1;
+    padding-top: 6em;
+    background: rgba(24, 24, 24, 0.829);
   }
 }

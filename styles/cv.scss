@@ -43,6 +43,7 @@
     left: 50%;
     font-size: 3em;
 
+    text-decoration: none;
     -webkit-animation: bounce 1.4s infinite;
     animation: bounce 1.4s infinite;
   }
@@ -86,7 +87,6 @@
   }
 
   .h4-job {
-    font-size: 8em;
     top: -0.4em;
   }
 
@@ -159,5 +159,13 @@
 
   img {
     max-width: 300px;
+  }
+}
+
+.some {
+  text-align: center;
+  margin-top: 3em;
+  img {
+    width: 3em;
   }
 }
