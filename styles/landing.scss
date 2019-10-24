@@ -29,6 +29,15 @@ body {
     position: absolute;
     top: 40%;
     transform: translateY(-40%);
+
+    @include pb {
+      font-size: 2.5em;
+      margin: 0.5em;
+    }
+
+    @include ps {
+      font-size: 2em;
+    }
   }
 
   .scroll-indicator {
@@ -82,13 +91,16 @@ nav {
   padding: 1em;
   font-family: $txt;
   font-weight: $light;
+  background: transparent;
+  transition: 0.5s ease-in-out;
 
-  .nav-colored {
+  &.nav-colored {
     background: $nav-dark;
+    transition: 0.5s ease-in-out;
   }
 
-  .nav-transparent {
-    background: transparent;
+  @include tb {
+    display: none;
   }
 
   a {
@@ -127,7 +139,7 @@ section {
   }
 
   h4 {
-    font-size: 10em;
+    font-size: 9em;
     opacity: 0.1;
     font-family: $txt;
     position: absolute;
@@ -135,6 +147,19 @@ section {
     top: -0.2em;
     left: 0.3em;
     color: $dark-font;
+
+    @include tb {
+      font-size: 6em;
+    }
+
+    @include pb {
+      font-size: 4em;
+    }
+
+    @include pm {
+      top: 0.3em;
+      font-size: 3em;
+    }
   }
 
   p {
@@ -147,6 +172,11 @@ section {
   max-width: 60vw;
   margin: 0 auto;
   padding: 4em;
+
+  @include pm {
+    max-width: 100%;
+    padding: 2em;
+  }
 }
 
 #portfolio {
@@ -162,13 +192,40 @@ section {
     p {
       padding-right: 3em;
       margin-top: 0;
+
+      @include tb {
+        max-width: 550px;
+        margin: 2em 2em;
+        padding: 0;
+      }
+
+      @include pb {
+        margin: 2em 0em;
+      }
+    }
+
+    #order-change {
+      @include tb {
+        order: 1;
+      }
+    }
+
+    @include ll {
+      grid-gap: 2em;
+    }
+
+    @include tb {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
   }
   .image {
     position: relative;
 
     img {
-      max-height: 550px;
+      max-width: 550px;
       transition: all 0.5s ease-in-out;
       opacity: 1;
       position: relative;
@@ -176,6 +233,13 @@ section {
       &:hover {
         transform: scale(1.03, 1.03);
         opacity: 0.3;
+      }
+
+      @include pb {
+        max-width: 350px;
+      }
+      @include ps {
+        max-width: 280px;
       }
     }
 
@@ -204,9 +268,19 @@ section {
   background: $nav-dark;
   color: $light-font;
 
+  @include pb {
+    margin: 0;
+  }
+
   .contact-txt {
     max-width: 60vw;
     margin: 0 auto;
+
+    @include pb {
+      padding: 1em;
+      margin: 0;
+      max-width: 100%;
+    }
   }
 
   h4 {
@@ -228,6 +302,20 @@ section {
 
     p {
       font-size: 1.2em;
+    }
+
+    @include ll {
+      max-width: none;
+    }
+
+    @include tb {
+      display: block;
+      text-align: left;
+      padding: 1em 8em;
+    }
+
+    @include pb {
+      padding: 1em;
     }
   }
 
@@ -254,10 +342,6 @@ section {
 //MEDIA QUERIES
 
 @media only screen and (max-width: 768px) {
-  #nav-bar {
-    display: none;
-  }
-
   #burger-menu {
     cursor: pointer;
     margin: 3em;
@@ -265,6 +349,7 @@ section {
     position: fixed;
     z-index: 2;
   }
+
   #burger-menu span,
   #burger-menu span:before,
   #burger-menu span:after {
@@ -274,6 +359,7 @@ section {
     position: absolute;
     transition: 0.3s ease-in-out;
   }
+
   #burger-menu span:before,
   #burger-menu span:after {
     content: "";
@@ -323,6 +409,8 @@ section {
     opacity: 0;
     transition: all 0.3s ease-in-out;
     text-align: center;
+    display: block;
+
     li {
       list-style: none;
     }
@@ -360,5 +448,17 @@ section {
     opacity: 1;
     padding-top: 6em;
     background: rgba(24, 24, 24, 0.829);
+  }
+}
+
+.burger-background-dark {
+  background: black !important;
+
+  &::before {
+    background: black !important;
+  }
+
+  &::after {
+    background: black !important;
   }
 }

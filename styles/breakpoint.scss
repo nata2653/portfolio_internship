@@ -1,0 +1,39 @@
+//Laptop
+$screen-ll: 1024px;
+@mixin ll {
+  @media (max-width: #{$screen-ll}) {
+    @content;
+  }
+}
+
+//iPad
+$screen-tb: 812px;
+@mixin tb {
+  @media (max-width: #{$screen-tb}) {
+    @content;
+  }
+}
+
+//iPhone 6,7,8 Plus
+$screen-pb: 414px;
+@mixin pb {
+  @media (max-width: #{$screen-pb}) {
+    @content;
+  }
+}
+
+//iPhone X, 6, 7, 8
+$screen-pm: 375px;
+@mixin pm {
+  @media (max-width: #{$screen-pm}) {
+    @content;
+  }
+}
+
+//iPhone 5
+$screen-ps: 320px;
+@mixin ps {
+  @media (max-width: #{$screen-ps}) {
+    @content;
+  }
+}
