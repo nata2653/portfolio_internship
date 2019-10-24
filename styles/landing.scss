@@ -4,6 +4,7 @@ html {
 
 body {
   margin: 0;
+  font-family: $txt;
 }
 
 .splash {
@@ -26,7 +27,6 @@ body {
     color: $dark-font;
     margin-left: 1.5em;
     font-size: 4em;
-    font-family: $txt;
     font-weight: $light;
     word-wrap: break-word;
     border-bottom: 1px black solid;
@@ -95,7 +95,6 @@ nav {
   z-index: 2;
   text-align: right;
   padding: 1em;
-  font-family: $txt;
   font-weight: $light;
   background: transparent;
   transition: 0.5s ease-in-out;
@@ -142,7 +141,6 @@ nav {
 section {
   position: relative;
   h1 {
-    font-family: $txt;
     font-weight: $light;
     font-size: 2.5em;
     text-align: center;
@@ -151,7 +149,6 @@ section {
   h4 {
     font-size: 9em;
     opacity: 0.1;
-    font-family: $txt;
     position: absolute;
     margin: 0;
     top: -0.2em;
@@ -173,7 +170,6 @@ section {
   }
 
   p {
-    font-family: $txt;
     font-weight: $regular;
   }
 }
@@ -192,6 +188,7 @@ section {
 #portfolio {
   border-top: 1px grey solid;
   align-items: center;
+  padding-bottom: 4em;
 
   .portfolio {
     display: grid;
@@ -201,6 +198,10 @@ section {
 
     p {
       margin-top: 0;
+      margin-top: 0;
+      align-self: center;
+      line-height: 1.7;
+      max-width: 30em;
 
       @include tb {
         max-width: 550px;
@@ -428,7 +429,7 @@ section {
       font-size: 2em;
       margin-bottom: 2em;
       text-decoration: none;
-      font-family: $txt;
+
       justify-content: center;
 
       transition: transform 250ms ease-in-out;
@@ -468,5 +469,115 @@ section {
 
   &::after {
     background: black !important;
+  }
+}
+
+#flip-container {
+  position: relative;
+  margin: 0 auto;
+  width: 500px;
+  height: 500px;
+  z-index: 1;
+
+  perspective: 1000;
+
+  #flip-card {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.7s linear;
+  }
+
+  &:hover #flip-card {
+    transform: rotateY(180deg);
+  }
+
+  .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+
+  .face.back {
+    position: relative;
+    display: block;
+    transform: rotateY(180deg);
+    box-sizing: border-box;
+    padding: 1em;
+    color: $light-font;
+    text-align: center;
+    box-shadow: 0em 0.5em 4em -3em grey;
+
+    // background-image: linear-gradient(to bottom right, $nav-dark, rgb(197, 112, 112), url("img/keramiker.png"));
+  }
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  outline: none;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  opacity: 1;
+  box-sizing: border-box;
+  padding: 2em;
+  border: 2px $nav-dark solid;
+  background: none;
+
+  a {
+    color: $nav-dark;
+    font-size: 2em;
+    font-weight: 500;
+    letter-spacing: 0.7px;
+    text-decoration: none;
+
+    animation: storm 0.7s ease-in-out;
+    animation-delay: 0.06s;
+
+    &:hover {
+      animation: rotate 0.7s ease-in-out;
+    }
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+  25% {
+    transform: rotate(3deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(-3deg) translate3d(0, 0, 0);
+  }
+  75% {
+    transform: rotate(1deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes storm {
+  0% {
+    transform: translate3d(0, 0, 0) translateZ(0);
+  }
+  25% {
+    transform: translate3d(4px, 0, 0) translateZ(0);
+  }
+  50% {
+    transform: translate3d(-3px, 0, 0) translateZ(0);
+  }
+  75% {
+    transform: translate3d(2px, 0, 0) translateZ(0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) translateZ(0);
   }
 }
