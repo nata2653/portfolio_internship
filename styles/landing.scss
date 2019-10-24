@@ -12,18 +12,24 @@ body {
   margin: auto;
   position: relative;
 
-  background-image: url(img/bg-img.jpg);
-  background-size: cover;
-  background-attachment: fixed;
+  background: whitesmoke;
+
+  img {
+    position: absolute;
+    top: 8em;
+    left: 42em;
+    opacity: 0.3;
+    max-height: 80vh;
+  }
 
   h1 {
-    color: $light-font;
-    margin-left: 0.5em;
+    color: $dark-font;
+    margin-left: 1.5em;
     font-size: 4em;
     font-family: $txt;
     font-weight: $light;
     word-wrap: break-word;
-    border-bottom: 1px whitesmoke solid;
+    border-bottom: 1px black solid;
     line-height: 2;
 
     position: absolute;
@@ -76,7 +82,7 @@ body {
 
   .fa,
   .fas {
-    color: white;
+    color: $dark-font;
   }
 }
 #menu {
@@ -97,6 +103,10 @@ nav {
   &.nav-colored {
     background: $nav-dark;
     transition: 0.5s ease-in-out;
+
+    a {
+      color: $light-font;
+    }
   }
 
   @include tb {
@@ -104,7 +114,7 @@ nav {
   }
 
   a {
-    color: $light-font;
+    color: $dark-font;
     text-decoration: none;
     margin: 2em;
     transform: scaleX(0);
@@ -124,7 +134,7 @@ nav {
     &:hover::after {
       width: 100%;
       transform: scaleX(1);
-      border-bottom: 1px $light-font solid;
+      border-bottom: 1px $dark-font solid;
     }
   }
 }
@@ -181,16 +191,15 @@ section {
 
 #portfolio {
   border-top: 1px grey solid;
-  margin: 1.5em;
   align-items: center;
 
   .portfolio {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    margin: 5em 1em 0em;
+    margin: 5em 4em 0em;
+    justify-items: center;
 
     p {
-      padding-right: 3em;
       margin-top: 0;
 
       @include tb {
@@ -205,6 +214,8 @@ section {
     }
 
     #order-change {
+      text-align: right;
+
       @include tb {
         order: 1;
       }
@@ -250,7 +261,7 @@ section {
       left: 0;
       right: 0;
       background: rgba(29, 106, 154, 0.72);
-      color: black;
+      color: $dark-font;
       visibility: hidden;
       opacity: 0;
       transition: opacity 0.2s, visibility 0.2s;
@@ -263,10 +274,10 @@ section {
 }
 
 #contact {
-  margin: 4em 1.5em;
-  border-top: 1px grey solid;
-  background: $nav-dark;
-  color: $light-font;
+  margin-top: 2em;
+  padding: 4em 1.5em;
+  background: $light-font;
+  color: $dark-font;
 
   @include pb {
     margin: 0;
@@ -275,16 +286,13 @@ section {
   .contact-txt {
     max-width: 60vw;
     margin: 0 auto;
+    padding-top: 2em;
 
     @include pb {
       padding: 1em;
       margin: 0;
       max-width: 100%;
     }
-  }
-
-  h4 {
-    color: rgb(58, 58, 58);
   }
 
   img {

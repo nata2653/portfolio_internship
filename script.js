@@ -16,8 +16,8 @@ function navColor() {
 
   console.log(scrollY);
 
-  scrollY >= 742 ? nav.classList.add("nav-colored") : "";
-  scrollY < 742 ? nav.classList.remove("nav-colored") : "";
+  scrollY >= 730 ? nav.classList.add("nav-colored") : "";
+  scrollY < 730 ? nav.classList.remove("nav-colored") : "";
 }
 
 function burgerColor() {
