@@ -9,11 +9,15 @@ body {
 
 .splash {
   height: 100vh;
-  padding-top: 60px;
+  padding-top: 3.75em;
   margin: auto;
   position: relative;
 
   background: whitesmoke;
+
+  @include ps {
+    padding-top: 12em;
+  }
 
   img {
     position: absolute;
@@ -21,6 +25,32 @@ body {
     left: 42em;
     opacity: 0.3;
     max-height: 80vh;
+
+    @include ll {
+      top: 9em;
+      left: 13em;
+      max-height: 50vh;
+    }
+
+    @include tb {
+      top: 11em;
+      left: 11em;
+    }
+
+    @include pb {
+      top: 10em;
+      left: 0;
+    }
+
+    @include pm {
+      top: 16em;
+      max-height: 41vh;
+    }
+
+    @include ps {
+      max-height: 50vh;
+      top: 21em;
+    }
   }
 
   h1 {
@@ -29,7 +59,7 @@ body {
     font-size: 4em;
     font-weight: $light;
     word-wrap: break-word;
-    border-bottom: 1px black solid;
+    border-bottom: 1px $dark-font solid;
     line-height: 2;
 
     position: absolute;
@@ -41,6 +71,9 @@ body {
       margin: 0.5em;
     }
 
+    @include pm {
+      top: 20%;
+    }
     @include ps {
       font-size: 2em;
     }
@@ -80,6 +113,57 @@ body {
     }
   }
 
+  @include pb {
+    @-webkit-keyframes bounce {
+      0% {
+        top: 75%;
+      }
+      50% {
+        top: 78%;
+      }
+      100% {
+        top: 75%;
+      }
+    }
+
+    @keyframes bounce {
+      0% {
+        top: 75%;
+      }
+      50% {
+        top: 78%;
+      }
+      100% {
+        top: 75%;
+      }
+    }
+  }
+  @include pm {
+    @-webkit-keyframes bounce {
+      0% {
+        top: 55%;
+      }
+      50% {
+        top: 58%;
+      }
+      100% {
+        top: 55%;
+      }
+    }
+
+    @keyframes bounce {
+      0% {
+        top: 55%;
+      }
+      50% {
+        top: 58%;
+      }
+      100% {
+        top: 55%;
+      }
+    }
+  }
+
   .fa,
   .fas {
     color: $dark-font;
@@ -105,6 +189,10 @@ nav {
 
     a {
       color: $light-font;
+
+      &:hover::after {
+        border-bottom: 1px $light-font solid;
+      }
     }
   }
 
@@ -151,9 +239,9 @@ section {
     opacity: 0.1;
     position: absolute;
     margin: 0;
-    top: -0.2em;
-    left: 0.3em;
-    color: $dark-font;
+    top: -0.7em;
+    left: 1em;
+    color: $nav-dark;
 
     @include tb {
       font-size: 6em;
@@ -177,24 +265,179 @@ section {
 #info {
   max-width: 60vw;
   margin: 0 auto;
-  padding: 4em;
+  padding: 10em;
 
   @include pm {
+    max-width: 100%;
+    padding: 2em;
+  }
+  @include pb {
     max-width: 100%;
     padding: 2em;
   }
 }
 
 #portfolio {
-  border-top: 1px grey solid;
   align-items: center;
   padding-bottom: 4em;
 
   .portfolio {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    margin: 5em 4em 0em;
+    margin: 5em 4em;
     justify-items: center;
+
+    @include pm {
+      margin: 5em 1em;
+    }
+
+    #flip-container {
+      position: relative;
+      margin: 0 auto;
+      width: 500px;
+      height: 500px;
+      z-index: 1;
+
+      perspective: 1000;
+
+      @include pb {
+        width: 300px;
+        height: 300px;
+      }
+
+      #flip-card {
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: all 0.7s linear;
+      }
+
+      &:hover #flip-card {
+        transform: rotateY(180deg);
+
+        @include pb {
+          transform: none;
+        }
+      }
+
+      .face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+
+        img {
+          @include ll {
+            width: 400px;
+          }
+          @include pb {
+            width: 300px;
+          }
+        }
+
+        @include ll {
+          top: 7em;
+          left: 4em;
+        }
+
+        @include tb {
+          width: 400px;
+          height: 400px;
+        }
+
+        @include pb {
+          position: static;
+          width: 300px;
+          height: 300px;
+        }
+      }
+
+      .face.back {
+        position: relative;
+        display: block;
+        transform: rotateY(180deg);
+        box-sizing: border-box;
+        padding: 1em;
+        color: $light-font;
+        text-align: center;
+        box-shadow: 0em 0.5em 4em -3em grey;
+        background: $nav-dark;
+
+        @include pb {
+          position: absolute;
+          padding: 0;
+        }
+      }
+    }
+
+    button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      outline: none;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      text-transform: uppercase;
+      opacity: 1;
+      box-sizing: border-box;
+      padding: 2em;
+      border: 2px $light-font solid;
+      background: $nav-dark;
+
+      a {
+        color: $light-font;
+        font-size: 2em;
+        font-weight: 500;
+        letter-spacing: 0.7px;
+        text-decoration: none;
+
+        animation: storm 0.7s ease-in-out;
+        animation-delay: 0.06s;
+
+        &:hover {
+          animation: rotate 0.7s ease-in-out;
+        }
+      }
+    }
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+      }
+      25% {
+        transform: rotate(3deg) translate3d(0, 0, 0);
+      }
+      50% {
+        transform: rotate(-3deg) translate3d(0, 0, 0);
+      }
+      75% {
+        transform: rotate(1deg) translate3d(0, 0, 0);
+      }
+      100% {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+      }
+    }
+
+    @keyframes storm {
+      0% {
+        transform: translate3d(0, 0, 0) translateZ(0);
+      }
+      25% {
+        transform: translate3d(4px, 0, 0) translateZ(0);
+      }
+      50% {
+        transform: translate3d(-3px, 0, 0) translateZ(0);
+      }
+      75% {
+        transform: translate3d(2px, 0, 0) translateZ(0);
+      }
+      100% {
+        transform: translate3d(0, 0, 0) translateZ(0);
+      }
+    }
 
     p {
       margin-top: 0;
@@ -214,11 +457,16 @@ section {
       }
     }
 
-    #order-change {
+    .order-change {
       text-align: right;
 
+      h1 {
+        text-align: right;
+      }
+
       @include tb {
-        order: 1;
+        order: -1;
+        text-align: left;
       }
     }
 
@@ -231,6 +479,59 @@ section {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+    }
+
+    .txt-portfolio {
+      h1 {
+        margin: 1em 0em 2em 0em;
+        text-align: left;
+        font-weight: $semi-bold;
+
+        @include tb {
+          text-align: center;
+        }
+        @include pb {
+          margin: 1em 0em;
+          text-align: left;
+        }
+      }
+
+      p {
+        @include pb {
+          font-size: 0.8em;
+        }
+      }
+
+      a {
+        color: $nav-dark;
+        text-decoration: none;
+        margin: 2em 0em;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+        position: relative;
+        font-weight: $bold;
+
+        &::after {
+          position: absolute;
+          content: "";
+          transition: width 0.3s;
+          display: inline-block;
+          bottom: 0;
+          left: 0;
+          width: 0;
+        }
+
+        &:hover::after {
+          width: 100%;
+          transform: scaleX(1);
+          border-bottom: 1px $nav-dark solid;
+        }
+
+        @include tb {
+          text-align: right;
+          margin: 0;
+        }
+      }
     }
   }
   .image {
@@ -273,78 +574,87 @@ section {
     }
   }
 }
+#about {
+  margin: 10em 0em;
+  #about-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 4em 4em 4em 6em;
+    justify-items: center;
+    padding-bottom: 4em;
 
-#contact {
-  margin-top: 2em;
-  padding: 4em 1.5em;
-  background: $light-font;
-  color: $dark-font;
+    img {
+      width: 350px;
+    }
 
-  @include pb {
-    margin: 0;
+    h1 {
+      text-align: left;
+    }
   }
 
-  .contact-txt {
-    max-width: 60vw;
-    margin: 0 auto;
-    padding-top: 2em;
+  figure {
+    --bdw: 0.5em;
+    max-width: 200px;
+    max-height: 200px;
+    position: relative;
+    display: grid;
+  }
+  figure:before,
+  figure:after {
+    content: "";
+    border: $nav-dark solid;
+    transform: rotate(-45deg);
+    grid-area: 1 / 1;
+  }
 
-    @include pb {
-      padding: 1em;
-      margin: 0;
-      max-width: 100%;
-    }
+  figure:before {
+    border-width: var(--bdw) 0;
+    z-index: -1;
+  }
+
+  figure:after {
+    border-width: 0 var(--bdw);
   }
 
   img {
-    border-radius: 0.7em;
+    grid-area: 1 / 1;
+    width: 100%;
+  }
+}
+
+#contact {
+  img {
+    width: 30px;
+    border-radius: 4px;
+  }
+
+  #contact-wrapper {
+    justify-content: center;
+
+    .contact-txt {
+      max-width: 60vw;
+      margin: 0 auto;
+    }
   }
 
   .contact-info {
-    max-width: 60vw;
-    margin: 0 auto;
-    padding-top: 2em;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2em;
-    text-align: center;
+    grid-template-rows: repeat(3, 1fr);
+    margin: 4em 10em;
+    span {
+      padding: 0.4em;
 
-    p {
-      font-size: 1.2em;
+      i {
+        padding-right: 1em;
+        font-size: 1.4em;
+      }
+
+      a {
+        color: black;
+        cursor: pointer;
+        text-decoration: none;
+      }
     }
-
-    @include ll {
-      max-width: none;
-    }
-
-    @include tb {
-      display: block;
-      text-align: left;
-      padding: 1em 8em;
-    }
-
-    @include pb {
-      padding: 1em;
-    }
-  }
-
-  .tlf:before {
-    font-family: "Material Icons";
-    content: "\e325";
-    font-size: 1.2em;
-    padding-right: 0.5em;
-  }
-  .mail:before {
-    font-family: "Material Icons";
-    content: "\e0be";
-    font-size: 1.2em;
-    padding-right: 0.5em;
-  }
-  .adress:before {
-    font-family: "Material Icons";
-    content: "\e88a";
-    font-size: 1.2em;
-    padding-right: 0.5em;
   }
 }
 
@@ -356,13 +666,13 @@ section {
     margin: 3em;
     overflow: visible;
     position: fixed;
-    z-index: 2;
+    z-index: 5;
   }
 
   #burger-menu span,
   #burger-menu span:before,
   #burger-menu span:after {
-    background: $light-font;
+    background: $dark-font;
     height: 0.2em;
     opacity: 1;
     position: absolute;
@@ -408,7 +718,7 @@ section {
   }
 
   #menu {
-    z-index: 1;
+    z-index: 4;
     min-width: 100%;
     min-height: 100%;
     position: fixed;
@@ -457,127 +767,5 @@ section {
     opacity: 1;
     padding-top: 6em;
     background: rgba(24, 24, 24, 0.829);
-  }
-}
-
-.burger-background-dark {
-  background: black !important;
-
-  &::before {
-    background: black !important;
-  }
-
-  &::after {
-    background: black !important;
-  }
-}
-
-#flip-container {
-  position: relative;
-  margin: 0 auto;
-  width: 500px;
-  height: 500px;
-  z-index: 1;
-
-  perspective: 1000;
-
-  #flip-card {
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: all 0.7s linear;
-  }
-
-  &:hover #flip-card {
-    transform: rotateY(180deg);
-  }
-
-  .face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-  }
-
-  .face.back {
-    position: relative;
-    display: block;
-    transform: rotateY(180deg);
-    box-sizing: border-box;
-    padding: 1em;
-    color: $light-font;
-    text-align: center;
-    box-shadow: 0em 0.5em 4em -3em grey;
-
-    // background-image: linear-gradient(to bottom right, $nav-dark, rgb(197, 112, 112), url("img/keramiker.png"));
-  }
-}
-
-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  outline: none;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  text-transform: uppercase;
-  opacity: 1;
-  box-sizing: border-box;
-  padding: 2em;
-  border: 2px $nav-dark solid;
-  background: none;
-
-  a {
-    color: $nav-dark;
-    font-size: 2em;
-    font-weight: 500;
-    letter-spacing: 0.7px;
-    text-decoration: none;
-
-    animation: storm 0.7s ease-in-out;
-    animation-delay: 0.06s;
-
-    &:hover {
-      animation: rotate 0.7s ease-in-out;
-    }
-  }
-}
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg) translate3d(0, 0, 0);
-  }
-  25% {
-    transform: rotate(3deg) translate3d(0, 0, 0);
-  }
-  50% {
-    transform: rotate(-3deg) translate3d(0, 0, 0);
-  }
-  75% {
-    transform: rotate(1deg) translate3d(0, 0, 0);
-  }
-  100% {
-    transform: rotate(0deg) translate3d(0, 0, 0);
-  }
-}
-
-@keyframes storm {
-  0% {
-    transform: translate3d(0, 0, 0) translateZ(0);
-  }
-  25% {
-    transform: translate3d(4px, 0, 0) translateZ(0);
-  }
-  50% {
-    transform: translate3d(-3px, 0, 0) translateZ(0);
-  }
-  75% {
-    transform: translate3d(2px, 0, 0) translateZ(0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0) translateZ(0);
   }
 }
