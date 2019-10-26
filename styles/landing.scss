@@ -226,6 +226,59 @@ nav {
   }
 }
 
+.btn-top {
+  width: 2.5em;
+  height: 2.5em;
+  text-align: center;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 6;
+  border: 1px $nav-dark solid;
+  text-decoration: none;
+
+  &::after {
+    content: "\f077";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1.2em;
+    line-height: 2em;
+    color: $nav-dark;
+  }
+
+  &:hover {
+    cursor: pointer;
+    animation: jump 1s ease-in-out infinite normal;
+
+    @keyframes jump {
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-1em);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+  }
+  &:active {
+    background: $nav-dark;
+    color: $light-font;
+  }
+}
+.show {
+  opacity: 1;
+  visibility: visible;
+}
+
 section {
   position: relative;
   h1 {
@@ -263,9 +316,14 @@ section {
 }
 
 #info {
-  max-width: 60vw;
+  max-width: 40vw;
   margin: 0 auto;
   padding: 10em;
+  line-height: 2;
+
+  strong {
+    font-weight: $semi-bold;
+  }
 
   @include pm {
     max-width: 100%;
@@ -280,6 +338,10 @@ section {
 #portfolio {
   align-items: center;
   padding-bottom: 4em;
+
+  @include pb {
+    padding-bottom: 0;
+  }
 
   .portfolio {
     display: grid;
@@ -337,7 +399,6 @@ section {
 
         @include ll {
           top: 7em;
-          left: 4em;
         }
 
         @include tb {
@@ -349,6 +410,12 @@ section {
           position: static;
           width: 300px;
           height: 300px;
+        }
+
+        &.front {
+          @include tb {
+            left: 3em;
+          }
         }
       }
 
@@ -362,7 +429,9 @@ section {
         text-align: center;
         box-shadow: 0em 0.5em 4em -3em grey;
         background: $nav-dark;
-
+        @include tb {
+          width: 100%;
+        }
         @include pb {
           position: absolute;
           padding: 0;
@@ -370,7 +439,7 @@ section {
       }
     }
 
-    button {
+    #flip-cta {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -482,8 +551,10 @@ section {
     }
 
     .txt-portfolio {
+      position: relative;
+
       h1 {
-        margin: 1em 0em 2em 0em;
+        margin-top: 0;
         text-align: left;
         font-weight: $semi-bold;
 
@@ -497,15 +568,28 @@ section {
       }
 
       p {
+        margin-top: 2em;
+
         @include pb {
           font-size: 0.8em;
+        }
+      }
+
+      .read-more {
+        cursor: pointer;
+        font-size: 0.8em;
+        padding: 0.8em;
+        border: 1px $nav-dark solid;
+        box-shadow: 4px 7px 19px -7px rgb(156, 156, 156);
+
+        &:hover {
+          animation: storm 0.7s ease-in-out;
         }
       }
 
       a {
         color: $nav-dark;
         text-decoration: none;
-        margin: 2em 0em;
         transform: scaleX(0);
         transition: transform 250ms ease-in-out;
         position: relative;
@@ -531,64 +615,54 @@ section {
           text-align: right;
           margin: 0;
         }
-      }
-    }
-  }
-  .image {
-    position: relative;
 
-    img {
-      max-width: 550px;
-      transition: all 0.5s ease-in-out;
-      opacity: 1;
-      position: relative;
+        @include tb {
+          margin-left: 2em;
+        }
 
-      &:hover {
-        transform: scale(1.03, 1.03);
-        opacity: 0.3;
+        @include pb {
+          margin: 0;
+        }
       }
 
-      @include pb {
-        max-width: 350px;
-      }
-      @include ps {
-        max-width: 280px;
-      }
-    }
-
-    p {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(29, 106, 154, 0.72);
-      color: $dark-font;
-      visibility: hidden;
-      opacity: 0;
-      transition: opacity 0.2s, visibility 0.2s;
-
-      &:hover {
-        opacity: 1;
+      .hidden {
+        display: none;
       }
     }
   }
 }
 #about {
   margin: 10em 0em;
+  line-height: 1.8;
+
   #about-wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    margin: 4em 4em 4em 6em;
+    margin: 4em 4em 0em 6em;
     justify-items: center;
-    padding-bottom: 4em;
 
     img {
       width: 350px;
+
+      @include ll {
+        width: 300px;
+      }
+
+      @include pb {
+        width: 200px;
+      }
     }
 
     h1 {
       text-align: left;
+    }
+
+    @include tb {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    @include pb {
+      margin: 4em 2em 0em 2em;
     }
   }
 
@@ -598,6 +672,13 @@ section {
     max-height: 200px;
     position: relative;
     display: grid;
+
+    @include tb {
+      max-width: 100%;
+      max-height: 100%;
+      order: -1;
+      margin: 1em 1em 5em;
+    }
   }
   figure:before,
   figure:after {
@@ -620,6 +701,43 @@ section {
     grid-area: 1 / 1;
     width: 100%;
   }
+
+  ul {
+    display: flex;
+    list-style: none;
+    justify-content: left;
+    margin-left: 2.2em;
+    flex-wrap: wrap;
+    max-width: 50vw;
+
+    @include tb {
+      margin-right: 2.2em;
+      max-width: 100%;
+    }
+
+    @include pb {
+      margin-left: -2em;
+      margin-right: 0;
+    }
+
+    li {
+      padding: 0.3em 1em;
+      border: 1px $nav-dark solid;
+      margin: 1em;
+      font-weight: $bold;
+      box-shadow: 4px 7px 19px -7px rgb(156, 156, 156);
+      background: $nav-dark;
+      color: $light-font;
+    }
+  }
+
+  .design {
+    li {
+      background: none;
+      color: $nav-dark;
+      border: 1px $nav-dark solid;
+    }
+  }
 }
 
 #contact {
@@ -634,13 +752,29 @@ section {
     .contact-txt {
       max-width: 60vw;
       margin: 0 auto;
+      line-height: 1.8;
+
+      @include pb {
+        max-width: 100%;
+        margin: 2em;
+      }
     }
   }
 
   .contact-info {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
-    margin: 4em 10em;
+    margin: 4em 13em;
+    line-height: 3;
+
+    @include tb {
+      margin: 4em 9em;
+    }
+
+    @include pb {
+      margin: 2em;
+    }
+
     span {
       padding: 0.4em;
 
@@ -654,13 +788,17 @@ section {
         cursor: pointer;
         text-decoration: none;
       }
+
+      @include ps {
+        padding: 0;
+      }
     }
   }
 }
 
 //MEDIA QUERIES
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 812px) {
   #burger-menu {
     cursor: pointer;
     margin: 3em;
@@ -733,6 +871,7 @@ section {
     li {
       list-style: none;
     }
+
     a {
       color: $light-font;
       display: inline-block;
@@ -763,9 +902,28 @@ section {
   }
 
   #menu.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     visibility: visible;
     opacity: 1;
-    padding-top: 6em;
     background: rgba(24, 24, 24, 0.829);
+    ul {
+      margin-left: -2em;
+    }
+    li {
+      animation: slideInTop 1s ease-in-out;
+    }
+  }
+
+  @keyframes slideInTop {
+    0% {
+      transform: translateY(-10em);
+      visibility: visible;
+    }
+
+    100% {
+      transform: translateY(0);
+    }
   }
 }

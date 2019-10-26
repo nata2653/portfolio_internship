@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.scss" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/14d9706232.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
   </head>
   <body>
     <header>
@@ -29,21 +29,22 @@
         <a href="#about">About me</a>
         <a href="#contact">Contact</a>
       </nav>
-      <div class="splash">
+      <div id="splash" class="splash">
         <img src="img/splash.jpg" alt="" />
         <h1>
           STRIVING TO BE A <br />
-          FRONTEND DESIGNER
+          FRONTEND DEVELOPER
         </h1>
         <a href="#info" class="scroll-indicator fa fa-angle-double-down"></a>
       </div>
+      <a href="#splash" class="btn-top"></a>
     </header>
     <main>
       <section id="info">
         <h1>Hi, I'm Natalie</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi eos fugiat autem assumenda quidem, rerum dicta earum voluptate obcaecati, illum iste molestias asperiores blanditiis sunt
-          incidunt voluptatum accusantium ipsam atque?
+          I am a <strong>frontend developer</strong> to-be who is passionate about <strong>web design</strong>. My dream is to work profesionally with <strong>web design</strong>,
+          <strong>web development</strong> and <strong>online communication.</strong>
         </p>
       </section>
 
@@ -54,33 +55,43 @@
           <div id="flip-container">
             <div id="flip-card" class="shadow">
               <div class="front face">
-                <img src="img/keramiker.png" alt="" />
+                <img src="img/code.png" alt="" />
               </div>
               <div class="back face">
-                <button><a href="">Visit website</a></button>
+                <button id="flip-cta"><a href="">Visit website</a></button>
               </div>
             </div>
           </div>
           <div class="txt-portfolio">
-            <h1>Exam project</h1>
+            <h1>Studentlist</h1>
+            <a href="http://natsir.dk/kea/3semester/11C_04_04/">Visit website</a>
+
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore, hic accusamus modi odit beatae quia repellendus consequuntur alias repellat minima soluta natus. Perspiciatis assumenda
-              temporibus voluptate officiis laborum sequi quas? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga nam enim dolores quam quo iusto repellat quod, provident sint molestias
-              sit a veniam facilis obcaecati, natus quasi omnis, debitis porro!
+              This site is <strong>not well designed</strong> since I had no focus on the design. <br />
+              The meaning behind this project was to develop a student list with different features such as sorting, filtering, removing students from the list, adding them to the inquisitorial squad,
+              etc. I had a high focus on <strong>JavaScript</strong> and how to implement different features to understand the logic behind programming with JavaScript. <br />
+              <strong>OBS!</strong> This site is a ‘hacked’ version<span id="dots">...</span>
+              <span id="more" class="hidden"
+                >which is why it might seem like some of the functions does not work. I will recommend you to <strong>have a look at the code behind</strong> - or contact me so I can explain. Do
+                <strong>not</strong> click on the student “Natalie Sirich” - a video of a meme will appear and erase all other content on the site.</span
+              >
             </p>
-            <a href="">Visit website</a>
+            <button class="read-more">Read more</button>
           </div>
         </div>
+
         <div class="portfolio">
           <div class="txt-portfolio">
             <div class="order-change">
               <h1>Campaign</h1>
+              <a href="http://natsir.dk/kea/2_semester/oplys_dig_selv/">Visit website</a>
+
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum eveniet impedit qui non minus fuga illo ad, quae corporis asperiores atque rem id accusantium odit quidem eos accusamus
                 nihil voluptatum?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis et vero nostrum nam. Inventore quis aperiam hic ipsum sed laudantium natus voluptates in culpa
                 consectetur illum, esse, dolorum iste eius.
               </p>
-              <a href="">Visit website</a>
+              <button class="read-more">Read more</button>
             </div>
           </div>
           <div id="flip-container" class="order-change">
@@ -89,7 +100,7 @@
                 <img src="img/oplys-dig-selv.png" alt="" />
               </div>
               <div class="back face">
-                <button><a href="">Visit website</a></button>
+                <button id="flip-cta"><a href="http://natsir.dk/kea/2_semester/oplys_dig_selv/">Visit website</a></button>
               </div>
             </div>
           </div>
@@ -98,21 +109,23 @@
           <div id="flip-container">
             <div id="flip-card" class="shadow">
               <div class="front face">
-                <img src="img/code.png" alt="" />
+                <img src="img/keramiker.png" alt="" />
               </div>
               <div class="back face">
-                <button><a href="">Visit website</a></button>
+                <button id="flip-cta"><a href="">Visit website</a></button>
               </div>
             </div>
           </div>
           <div class="txt-portfolio">
-            <h1>Studentlist</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit velit quae sit quam commodi inventore est natus accusantium facere illo placeat incidunt accusamus nulla eum quasi, quidem
-              temporibus laborum Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab mollitia, quaerat doloremque ex soluta minus minima dolorum in nobis consectetur nemo iste porro itaque
-              neque molestias? Natus suscipit enim minima?
-            </p>
+            <h1>Ceramist Lene Hansen</h1>
             <a href="">Visit website</a>
+
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore, hic accusamus modi odit beatae quia repellendus consequuntur alias repellat minima soluta natus. Perspiciatis assumenda
+              temporibus voluptate officiis laborum sequi quas? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga nam enim dolores quam quo iusto repellat quod, provident sint molestias
+              sit a veniam facilis obcaecati, natus quasi omnis, debitis porro!
+            </p>
+            <button class="read-more">Read more</button>
           </div>
         </div>
       </section>
@@ -125,19 +138,38 @@
             <h3>Studying to be a frontend developer</h3>
             <h1>Natalie Sirich</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis eius harum accusantium dolore numquam est. Debitis aliquid magnam, quisquam repellat ipsam excepturi dolores voluptatem ex
-              error officia soluta, voluptatibus magni? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe excepturi similique impedit recusandae, quidem facilis, vero soluta asperiores
-              est at assumenda aperiam fuga commodi quia debitis provident ea ratione consequuntur! <br />
+              I am studying multimedia design at KEA (Københavns Erhvervsakademi) with a goal to become a frontend developer. I am very passionate about web design, online communication and the
+              technological development in society, which is why I am working hard to make a career out of it.
               <br />
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, dolorem voluptas illum qui vel ex corporis vitae ullam ut a animi recusandae consequatur velit provident, quam
-              nihil repellat dicta reiciendis. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum a reprehenderit quos totam vel! Obcaecati quis impedit animi esse maxime voluptas
-              nulla, corrupti, ullam rem perferendis, quod quisquam placeat magnam.
+              <br />
+              I am an ambitious young woman with a natural flair for IT. I love to take action and work hard to find the perfect solution for the specific client/case - both independently and in a
+              team. I am a very curious person who is eager to learn, discover and be inspired.
+              <br />
+              <br />
+              When it comes to design I like to keep things simple and focus on the message.
             </p>
           </div>
           <figure>
             <img src="img/portraet.png" alt="portrait" />
           </figure>
         </div>
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>JQuery</li>
+          <li>SCSS</li>
+          <li>React</li>
+          <li>Git</li>
+          <li>Bootstrap</li>
+          <li>WordPress</li>
+        </ul>
+        <ul class="design">
+          <li>InDesign</li>
+          <li>Illustrator</li>
+          <li>Photoshop</li>
+          <li>Xd</li>
+        </ul>
       </section>
     </main>
     <footer>
@@ -147,8 +179,8 @@
 
         <div id="contact-wrapper">
           <p class="contact-txt">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse sint tempora similique culpa sapiente voluptates ullam ducimus vitae voluptas veritatis atque nesciunt tempore sequi
-            temporibus cumque cum, est odio? Doloribus?
+            If you want to hear more about me, my work and my ambitions please do not hesitate to contact me. I am always interested in a conversation over a cup of coffee - or tea in my case since I
+            do not like coffee... So there will be more coffee for you to enjoy!
           </p>
         </div>
 
@@ -157,12 +189,13 @@
             ><a href=""><i class="fab fa-linkedin"></i>LinkedIn</a></span
           >
           <span><i class="fas fa-mobile-alt"></i> +45 61163539</span>
-          <span><i class="fas fa-envelope"></i>nataliesirich@hotmail.com</span>
+          <span><i class="fas fa-envelope"></i><a href="mailto:nataliesirich@hotmail.com"> nataliesirich@hotmail.com</a></span>
           <span><i class="fas fa-map-marker-alt"></i>Copenhagen</span>
         </div>
       </section>
     </footer>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/14d9706232.js" crossorigin="anonymous"></script>
   </body>
 </html>
