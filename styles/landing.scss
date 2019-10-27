@@ -346,7 +346,7 @@ section {
   .portfolio {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    margin: 5em 4em;
+    margin: 5em 4em 10em;
     justify-items: center;
 
     @include pm {
@@ -526,7 +526,7 @@ section {
       }
     }
 
-    .order-change {
+    #order-change {
       text-align: right;
 
       h1 {
@@ -632,7 +632,7 @@ section {
   }
 }
 #about {
-  margin: 10em 0em;
+  margin: 0em 0em 10em;
   line-height: 1.8;
 
   #about-wrapper {
