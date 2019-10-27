@@ -430,11 +430,10 @@ section {
         box-shadow: 0em 0.5em 4em -3em grey;
         background: $nav-dark;
         @include tb {
-          width: 100%;
+          display: none;
         }
         @include pb {
-          position: absolute;
-          padding: 0;
+          display: none;
         }
       }
     }
@@ -531,10 +530,13 @@ section {
 
       h1 {
         text-align: right;
+
+        @include tb {
+          text-align: left;
+        }
       }
 
       @include tb {
-        order: -1;
         text-align: left;
       }
     }
@@ -565,6 +567,10 @@ section {
           margin: 1em 0em;
           text-align: left;
         }
+      }
+
+      &.order-change {
+        order: 1;
       }
 
       p {
@@ -801,10 +807,11 @@ section {
 @media only screen and (max-width: 812px) {
   #burger-menu {
     cursor: pointer;
-    margin: 3em;
+    margin: 2em;
     overflow: visible;
     position: fixed;
     z-index: 5;
+    right: 0;
   }
 
   #burger-menu span,
@@ -822,17 +829,17 @@ section {
     content: "";
   }
   #burger-menu span {
-    right: 0;
+    left: 0;
     top: 1em;
     width: 1em;
   }
   #burger-menu span:before {
-    left: 0;
+    right: 0;
     top: -0.7em;
     width: 1.3em;
   }
   #burger-menu span:after {
-    left: 0;
+    right: 0;
     top: 0.7em;
     width: 1.3em;
   }
@@ -841,6 +848,7 @@ section {
     transform: rotate(-45deg);
     top: 0.8em;
     width: 1.7em;
+    color: $light-font;
   }
   #burger-menu.close span:before {
     top: 0;

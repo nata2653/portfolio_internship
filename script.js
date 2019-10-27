@@ -9,7 +9,15 @@ const overlay = document.querySelector("#menu");
 burgerMenu.addEventListener("click", function() {
   this.classList.toggle("close");
   overlay.classList.toggle("overlay");
+
+  document.querySelector("#menu").addEventListener("click", btnClose);
 });
+
+function btnClose() {
+  const overlay = document.querySelector("#menu");
+
+  overlay.classList.remove("overlay");
+}
 
 function backToTop() {
   const scrollY = window.pageYOffset;
