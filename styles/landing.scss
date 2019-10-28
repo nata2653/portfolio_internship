@@ -349,6 +349,10 @@ section {
     margin: 5em 4em 10em;
     justify-items: center;
 
+    @include ll {
+      margin-bottom: 0;
+    }
+
     @include pm {
       margin: 5em 1em;
     }
@@ -391,7 +395,13 @@ section {
         img {
           @include ll {
             width: 400px;
+            margin-left: 4em;
           }
+
+          @include tb {
+            margin-left: 0;
+          }
+
           @include pb {
             width: 300px;
           }
@@ -532,7 +542,7 @@ section {
         text-align: right;
 
         @include tb {
-          text-align: left;
+          text-align: center;
         }
       }
 
@@ -560,6 +570,10 @@ section {
         text-align: left;
         font-weight: $semi-bold;
 
+        @include ll {
+          margin-top: 3em;
+        }
+
         @include tb {
           text-align: center;
         }
@@ -570,7 +584,9 @@ section {
       }
 
       &.order-change {
-        order: 1;
+        @include tb {
+          order: 1;
+        }
       }
 
       p {
